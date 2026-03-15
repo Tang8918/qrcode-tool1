@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于我们 - 二维码生成器</title>
+  <meta name="description" content="了解二维码生成器工具站，我们提供免费、安全、无需注册的在线二维码生成服务。" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #4f46e5;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: #4f46e5;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 16px;
+    }
+    .back-link {
+      text-decoration: none;
+      color: #64748b;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #4f46e5; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+      color: white;
+      text-align: center;
+      padding: 48px 24px 36px;
+    }
+    .page-hero .big-icon { font-size: 56px; margin-bottom: 16px; }
+    .page-hero h1 { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .page-hero p { font-size: 15px; opacity: 0.88; max-width: 480px; margin: 0 auto; }
+
+    .content-wrap {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+    }
+    .section {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 12px rgba(79,70,229,0.06);
+    }
+    .section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eef2ff;
+    }
+    .section p {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      text-align: center;
+      background: #eef2ff;
+      border-radius: 12px;
+      padding: 20px 12px;
+    }
+    .stat-num { font-size: 28px; font-weight: 800; color: #4f46e5; }
+    .stat-label { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+    .features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #475569;
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+    }
+    .features-list li .icon { font-size: 20px; flex-shrink: 0; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .contact-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-item .c-icon {
+      font-size: 24px;
+      width: 44px; height: 44px;
+      background: #eef2ff;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item .c-label { font-size: 12px; color: #94a3b8; }
+    .contact-item .c-val { font-size: 14px; font-weight: 600; color: #1e293b; margin-top: 2px; }
+    .contact-item a { color: #4f46e5; text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    .cta-box {
+      background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+      border-radius: 14px;
+      padding: 28px 32px;
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+    }
+    .cta-box h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .cta-box p { font-size: 14px; opacity: 0.88; margin-bottom: 18px; }
+    .btn-cta {
+      display: inline-block;
+      background: white;
+      color: #4f46e5;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    footer {
+      background: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 13px;
+    }
+    footer a { color: #cbd5e1; text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: white; }
+
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .features-list { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">▦</div>
+      二维码生成器
+    </a>
+    <a href="index.html" class="back-link">← 返回首页</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="big-icon">▦</div>
+  <h1>关于二维码生成器</h1>
+  <p>一款简单、免费、安全的在线二维码生成工具，让每个人都能轻松创建专属二维码</p>
+</div>
+
+<div class="content-wrap">
+
+  <div class="section">
+    <h2>📖 我们是谁</h2>
+    <p>二维码生成器是一款专注于提供高质量二维码生成服务的免费在线工具。我们相信，实用的工具应该人人可用，无门槛、无费用。</p>
+    <p>本工具完全在您的浏览器端运行，所有数据处理均在本地完成，无需注册账号，不收集您的输入内容，让您安心使用。</p>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">支持的二维码类型</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">完全免费无水印</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0</div>
+        <div class="stat-label">数据上传服务器</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✨ 核心功能</h2>
+    <ul class="features-list">
+      <li><span class="icon">🔗</span><div><strong>网址二维码</strong><br/>将任意网址转为可扫描二维码</div></li>
+      <li><span class="icon">📶</span><div><strong>WiFi 二维码</strong><br/>扫码自动连接 WiFi，无需手动输密码</div></li>
+      <li><span class="icon">👤</span><div><strong>名片二维码</strong><br/>扫码即存联系人，商务场合必备</div></li>
+      <li><span class="icon">📝</span><div><strong>文本二维码</strong><br/>将任意文字内容编码为二维码</div></li>
+      <li><span class="icon">📧</span><div><strong>邮件二维码</strong><br/>扫码直接发送预设邮件</div></li>
+      <li><span class="icon">🎨</span><div><strong>自定义样式</strong><br/>颜色、尺寸、纠错级别自由调节</div></li>
+      <li><span class="icon">💾</span><div><strong>多格式下载</strong><br/>支持 PNG 和 SVG 矢量格式导出</div></li>
+      <li><span class="icon">📱</span><div><strong>手机端适配</strong><br/>全面响应式设计，手机也好用</div></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🔒 隐私承诺</h2>
+    <p>我们对用户隐私有严肃的承诺：</p>
+    <p>• <strong>本地运行</strong>：所有二维码生成逻辑在您的浏览器内执行，内容不经过我们的服务器。</p>
+    <p>• <strong>无需注册</strong>：无需填写任何个人信息，打开即用。</p>
+    <p>• <strong>无水印</strong>：生成的二维码干净纯粹，完全属于您。</p>
+    <p>• <strong>HTTPS 加密</strong>：全站采用 HTTPS 传输，保障连接安全。</p>
+    <p>详情请查阅我们的 <a href="privacy.html" style="color:#4f46e5;font-weight:600">隐私政策</a>。</p>
+  </div>
+
+  <div class="section">
+    <h2>📮 联系我们</h2>
+    <p>有任何问题、建议或合作意向，欢迎随时联系我们：</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="c-icon">📧</div>
+        <div>
+          <div class="c-label">电子邮件</div>
+          <div class="c-val"><a href="mailto:support@qrcode-tool.com">support@qrcode-tool.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">⏱️</div>
+        <div>
+          <div class="c-label">响应时间</div>
+          <div class="c-val">5 个工作日内回复</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">🐛</div>
+        <div>
+          <div class="c-label">问题反馈</div>
+          <div class="c-val"><a href="mailto:bug@qrcode-tool.com">bug@qrcode-tool.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">🤝</div>
+        <div>
+          <div class="c-label">商务合作</div>
+          <div class="c-val"><a href="mailto:biz@qrcode-tool.com">biz@qrcode-tool.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>立即开始生成二维码</h3>
+    <p>免费、快速、无需注册，30 秒生成你的专属二维码</p>
+    <a href="index.html" class="btn-cta">🔳 马上生成</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 二维码生成器 · 免费在线工具</p>
+  <p style="margin-top:8px">
+    <a href="index.html">首页</a>
+    <a href="privacy.html">隐私政策</a>
+    <a href="about.html">关于我们</a>
+  </p>
+</footer>
+
+</body>
+</html>

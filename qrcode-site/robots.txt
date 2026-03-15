@@ -1,0 +1,14 @@
+# robots.txt - 二维码生成器
+# 告诉搜索引擎爬虫哪些页面可以抓取
+
+User-agent: *
+Allow: /
+
+# 明确允许抓取重要页面
+Allow: /index.html
+Allow: /privacy.html
+Allow: /about.html
+Allow: /sitemap.xml
+
+# Sitemap 地址（★ 替换为你的真实域名）
+Sitemap: https://你的域名.com/sitemap.xml

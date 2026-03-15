@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 首页（最高权重） -->
+  <url>
+    <loc>https://你的域名.com/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 隐私政策 -->
+  <url>
+    <loc>https://你的域名.com/privacy.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- 关于我们 -->
+  <url>
+    <loc>https://你的域名.com/about.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
+<!--
+  ★ 使用说明：
+  1. 将所有 "https://你的域名.com" 替换为你实际的网站域名
+     例如：https://qrcode.yourdomain.com 或 https://你的项目名.vercel.app
+  2. 部署后，在以下平台提交 sitemap：
+     - Google Search Console: https://search.google.com/search-console
+       → 左侧菜单 → Sitemaps → 输入 sitemap.xml → 提交
+     - 百度站长平台: https://ziyuan.baidu.com
+       → 数据引入 → sitemap → 提交
+-->
