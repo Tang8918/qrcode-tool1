@@ -11,4 +11,4 @@ Allow: /about.html
 Allow: /sitemap.xml
 
 # Sitemap 地址（★ 替换为你的真实域名）
-Sitemap: https://你的域名.com/sitemap.xml
+Sitemap: https://qrcode-tool1-yb3d.vercel.app
